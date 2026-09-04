@@ -1,10 +1,25 @@
 package com.example.student.model;
 
+import jakarta.validation.constraints.*;
+
+
+
 public class Student {
+	
 	private Integer id;
+	
+	@NotBlank(message = "Name cannot be empty or blank")
 	private String name;
+	
+	@NotBlank(message = "Email cannot be empty or blank")
+	@Email(message = "Email must be a valid email address")
 	private String email;
+	
+	@NotNull(message = "Age cannot be null")
+	@Min(value = 18, message = "Age must be at least 18")
 	private Integer age;
+	
+	@NotBlank(message = "Course cannot be empty or blank")
 	private String course;
 	
 	public Student() {
